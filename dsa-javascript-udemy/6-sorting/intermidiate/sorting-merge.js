@@ -1,4 +1,3 @@
-
 function merge(arr1, arr2) {
     // crea un array para mezclar ambos arrays ordenados
     // y los punteros para los arrays
@@ -42,4 +41,21 @@ function merge(arr1, arr2) {
     return res;
 }
 
-export {merge}
+function mergeSort(arr){
+    if(arr.length <= 1){
+        return arr;
+    }
+    else {
+        let size = arr.length;
+        let m = Math.floor(size/2);
+        let izq = arr.slice(0, m);
+        let der = arr.slice(m, size);
+        return merge(mergeSort(izq), mergeSort(der));
+    }
+}
+
+
+
+
+
+console.log(mergeSort([53,543,3,63,76,8,354,765,8,54,76,65,78,16,54,91]))
