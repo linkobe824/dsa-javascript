@@ -42,4 +42,4 @@ function merge(arr1, arr2) {
     return res;
 }
 
-export {merge}
+console.log(merge([1,22,3],[2,14,55,99,100]));
