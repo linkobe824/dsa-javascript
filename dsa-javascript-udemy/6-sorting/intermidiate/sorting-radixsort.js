@@ -18,3 +18,29 @@ function mostDigits(arr) {
     }
     return maxDigits;
 }
+
+//Funcion que acepte una lista de numeros
+function radixSort(nums) {
+    // Encuentra el numero de digitos mas grande dentro de la lista
+    let maxDigtis = mostDigits(nums);
+    // Recorre desde k=0 hasta el numero de digitos mas grande
+    for (let i = 0; i < maxDigtis; i++) {
+        //para cada iteracion del loop
+        // crea una cubeta para cada digito (0-9)
+        const buckets = Array.from(Array(10), () => [])
+        // acomoda cada numero en la cubeta correspondiente basado
+        // en su digito k-esimo
+        for (let j = 0; j < nums.length; j++){
+            let digit = getDigit(nums[j], i);
+            buckets[digit].push(nums[j]);
+        }
+        // reemplaza el array existente con los valores en las cubetas
+        // de 0 a 9
+        nums = [].concat(...buckets);
+    }
+    return nums;
+}
+
+let arr = [1234,53423,65,5436,754,87,6,3456,3,234,7,65,5647];
+
+console.log(radixSort(arr));
