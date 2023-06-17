@@ -1,5 +1,5 @@
 //se tiene un array desordenado
-//se inicia con el segundo elemento llamdo currentVal = arr[i] con i desde 1 hasta arr[n-1]
+//se inicia con el segundo elemento llamado currentVal = arr[i] con i desde 1 hasta arr[n-1]
 // los valores a la izquierda mayores que el currentVal se recorren hacia la derecha y
 // cuando el valor ya no sea mayor, se sustituye este por la currentVal.
 //se repite hasta que se tenga el array ordenado

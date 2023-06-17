@@ -1,6 +1,7 @@
 function bubbleSort(arr) {
 // inicia loopeando con i = el final del array hasta el inicio
-// de esta forma se hacen menos pasadas al array y podemos usar i como limite para j
+// de esta forma se hacen menos pasadas al array y podemos usar 
+// i como limite para j
     for (let i = arr.length; i > 0; i--){
         // loop interno desde 0 hasta i - 1
         for (let j = 0; j < i - 1; j++){

@@ -1,5 +1,7 @@
-//cuando se tiene un array que ya esta (casi) ordenado, no es necesario ir pasando constantemente el loop
-// podemos crear una variable que nos cheque si hiciemos algun intercambio de valor en la ultima pasada
+//cuando se tiene un array que ya esta (casi) ordenado, 
+// no es necesario ir pasando constantemente el loop
+// podemos crear una variable que nos cheque si hiciemos algun 
+// intercambio de valor en la ultima pasada
 // si no se hizo, entonces salimos del loop
 
 function bubbleSort(arr) {
