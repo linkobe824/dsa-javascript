@@ -1,11 +1,20 @@
-let arr = [1,2,3,4,5,6,7,8]
+let arr = [4, 1, 2, 8, 5, 7, 6, 3];
 
-let size = arr.length
 
-let m = Math.floor(size/2);
 
-let izq = arr.slice(0,m);
-let der = arr.slice(m, size);
+function swap2(arr){
+    for(let i = 0; i < arr.length-1; i++){
+        if (arr[i] < arr[i + 1]){
+            swap(arr, i, i+1);
+        }
+    }
+    return arr;
+}
 
-console.log(izq, der)
+function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
 
+console.log(swap2(arr));

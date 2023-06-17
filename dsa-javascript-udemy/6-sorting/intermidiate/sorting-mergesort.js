@@ -13,6 +13,7 @@ function merge(arr1, arr2) {
         }
     }
 
+    //puedes usar while loop 
     if (i < arr1.length){
         res = res.concat(arr1.slice(i))
     } 
