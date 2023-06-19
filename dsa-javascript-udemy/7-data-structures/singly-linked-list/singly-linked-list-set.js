@@ -98,7 +98,9 @@ class SinglyLinkedList {
 
     //metodo para cambiar el valor de un nodo en cierto indice
     set(idx, val){
+        // utiliza la funcion get para encontrar el nodo
         let node = this.get(idx);
+        //si el nodo es encontrado, cambia el valor y retorna true
         if(node){
             node.val = val;
             return true;
@@ -106,5 +108,3 @@ class SinglyLinkedList {
         return false;
     }
 }
-
-

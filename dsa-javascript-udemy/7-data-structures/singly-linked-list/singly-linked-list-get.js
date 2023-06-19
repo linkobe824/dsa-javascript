@@ -97,6 +97,8 @@ class SinglyLinkedList {
         // retorna el nodo que corresponde a ese indice
         return current;
     }
+
+
 }
 
 ll = new SinglyLinkedList()
