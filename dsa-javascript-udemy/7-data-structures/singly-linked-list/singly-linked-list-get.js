@@ -82,19 +82,26 @@ class SinglyLinkedList {
         return this;
 
     }
+
     //metodo para recuperar nodo en un indice especifico
     get(idx){
+        // si el indice es menor a 0 o mayor o igual a la longitud retorna null
         if(idx < 0 || idx >= this.length) return null;
         let count = 0
         let current = this.head
-
+        // recorre la lista hasta que llegues al indice
         while(count < idx){
             current = current.next
             count++
         }
-
+        // retorna el nodo que corresponde a ese indice
         return current;
     }
 }
 
+ll = new SinglyLinkedList()
+ll.push(2)
+ll.push(4)
+ll.push(6)
 
+console.log(ll.get(2))
