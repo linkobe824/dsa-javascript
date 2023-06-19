@@ -68,19 +68,22 @@ class SinglyLinkedList {
 
     //metodo para añadir un nodo al inicio de la lista
     unshift(val){
+        // crea un nuevo nodo
         let newNode = new Node(val);
+        // si no hay head, haz al nuevo nodo head y tail
         if(!this.head){
             this.head = newNode;
             this.tail = this.head;
         }
 
+        // la propiedad next del nuevo nodo apunta al head actual
         newNode.next = this.head
+        // haces que el head sea el nuevo nodo
         this.head = newNode
+        //aumenta la longitud en 1
         this.length++;
-
+        //retorna la lisa
         return this;
 
     }
 }
-
-
