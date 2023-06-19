@@ -122,18 +122,19 @@ class SinglyLinkedList {
  
     }
 
-    // metodo para remover un nodo de un indice especifico
     remove(idx){
+        // si el indice es menor a 0 o mayor o igual a la longitud, retorna undefined
         if(idx < 0 || idx >= this.length) return false;
+        //si el indice es 0 usa shift() si el indice es longitud - 1 usa pop()
         if(idx === 0) return this.shift();
         if(idx === this.length - 1) return this.pop();
-
+        // utiliza get(indice - 1) para obtener el nodo previo al que se elmina
         let prevNode = this.get(idx-1);
+        // guarda en una variable el nodo que se elimina
         let removedNode = prevNode.next;
+        // haz que el nodo previo apunte al nodo siguiente del que se elimina 
         prevNode.next = removedNode.next
 
         return removedNode;
     }
 }
-
-
