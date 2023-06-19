@@ -75,12 +75,14 @@ class SinglyLinkedList {
             this.head = newNode;
             this.tail = this.head;
         }
-
-        // la propiedad next del nuevo nodo apunta al head actual
-        newNode.next = this.head
-        // haces que el head sea el nuevo nodo
-        this.head = newNode
-        //aumenta la longitud en 1
+        // si hay head
+        else {
+            // la propiedad next del nuevo nodo apunta al head actual
+            newNode.next = this.head
+            // haces que el head sea el nuevo nodo
+            this.head = newNode
+            //aumenta la longitud en 1
+        }
         this.length++;
         //retorna la lisa
         return this;
