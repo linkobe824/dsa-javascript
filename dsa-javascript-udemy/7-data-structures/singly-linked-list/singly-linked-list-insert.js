@@ -108,19 +108,33 @@ class SinglyLinkedList {
 
     //metodo para insertar un nodo en un indice en especifico
     insert(idx, val){
+        // si el inidce es menor a 0 o mayor a la longitud retorna null
         if(idx < 0 || idx > this.length) return false;
+        // si el indice es igual a la longitud utiliza push
+        // nota: !! convierte un valor en booleano si es truthy o flasy
+        // de esta forma, el valor de retorno de push y unshift en lugar
+        // de ser el nodo como esta diseñado en esas funciona
+        // esta funcion (insert) convierte a true el valor devuelto.
         if(idx === this.length) return !!this.push(val);
+        //si el indice es 0 utiliza unshift
         if( idx === 0) return !!this.unshift(val);
-
+        //sino, obten el nodo anterior al indice y contectalo al nuevo nodo
+        // y el nuevo nodo conectalo al que era el indice
         let newNode = new Node(val);
         let prevNode = this.get(idx-1);
         newNode.next = prevNode.next;
         prevNode.next = newNode;
-
+        //aumenta la longitud en 1
         this.length++;
         return true;
  
     }
 }
 
+let ll = new SinglyLinkedList()
+ll.push(2)
+ll.push(3)
+ll.push(4)
 
+ll.insert(1,5)
+console.log(ll);
