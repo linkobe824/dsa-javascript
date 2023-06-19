@@ -53,6 +53,18 @@ class SinglyLinkedList {
             }
             return current.val;
         }
+
+            //metodo para remover el primer elemento de la lista
+            shift(){
+                if(!this.head) return undefined;
+                let oldHead = this.head;
+                this.head = oldHead.next;
+                this.length--;
+                if(this.length === 0){
+                    this.tail = null;
+                }
+                return oldHead.val;
+            }
 }
 
 
