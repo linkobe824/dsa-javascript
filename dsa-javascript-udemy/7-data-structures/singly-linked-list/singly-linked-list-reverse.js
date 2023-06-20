@@ -135,44 +135,56 @@ class SinglyLinkedList {
         return removedNode;
     }
 
-// metodo para invertir la listsa
-reverse(){
-    // intercambia head y tail
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
-    // prev se inicia en null para que el nuevo tail
-    // apunte ahi en la primera iteracion
-    //sino es undefined
-    let next;
-    let prev = null;
+    // metodo para invertir la listsa
+    reverse(){
+        // intercambia head y tail
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        // prev se inicia en null para que el nuevo tail
+        // apunte ahi en la primera iteracion
+        //sino es undefined
+        let next;
+        let prev = null;
 
-    //recorre la lista
-    // next sera el siguiente elemento del nodo
-    // el nodo apuntara a prev
-    // el nodo se convertira en prev
-    // y next se convertira en nodo
-    while(node){
-        next = node.next;
-        node.next = prev;
-        prev = node;
-        node = next;
+        //recorre la lista
+        // next sera el siguiente elemento del nodo
+        // el nodo apuntara a prev
+        // el nodo se convertira en prev
+        // y next se convertira en nodo
+        while(node){
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+
+        return this;
+        
     }
 
-    return this;
-    
-}
-
-// metodo para ver la lista
-print(){
-    let arr = [];
-    let current = this.head;
-    while(current){
-        arr.push(current.val);
-        current = current.next;
+    // metodo para ver la lista
+    print(){
+        let arr = [];
+        let current = this.head;
+        while(current){
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log(arr);
     }
-    console.log(arr);
-}
+
 }
 
 
+
+
+let ll = new SinglyLinkedList()
+
+ll.push(1);
+ll.push(2);
+ll.push(3);
+
+console.log(ll.print())
+console.log(ll.reverse())
+console.log(ll.print())
