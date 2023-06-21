@@ -120,3 +120,15 @@ class DoublyLinkedList {
         return cur;
     }
 }
+
+let dll = new DoublyLinkedList();
+dll.push(1);
+dll.push(4);
+dll.push(8);
+dll.push(10);
+dll.push(12)
+console.log(dll.get(0))
+console.log(dll.get(1))
+console.log(dll.get(2))
+console.log(dll.get(3))
+console.log(dll.get(4))
