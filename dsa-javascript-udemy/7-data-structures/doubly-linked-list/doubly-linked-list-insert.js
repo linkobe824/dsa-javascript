@@ -94,10 +94,12 @@ class DoublyLinkedList {
     }
 
     get(idx){
+        // verificar que idx es valido
         if(idx < 0 || idx >= this.length ) return null;
         let count, cur;
+        // obtener el tamaño de la mitad de la lista
         let mid = this.length/2;
-        
+        //si idx es menor o igual a la mitad, inicia del head
         if(idx <= mid){
             count = 0;
             cur = this.head;
@@ -107,6 +109,7 @@ class DoublyLinkedList {
             }
         }
         else {
+            // si idx es mayor a la mitad, inicia del tail
             count = this.length - 1;
             cur = this.tail;
             while(count > idx){
@@ -139,8 +142,16 @@ class DoublyLinkedList {
         nextNode.prev = newNode;
         newNode.next = nextNode;
         
-        this.length++;
-
         return true;
+
     }
 }
+
+let dll = new DoublyLinkedList();
+dll.push(1);
+dll.push(4);
+dll.push(8);
+dll.print();
+dll.insert(2, "new");
+console.log(dll)
+dll.print();
