@@ -96,13 +96,13 @@ class DoublyLinkedList {
     get(idx){
         // verificar que idx es valido
         if(idx < 0 || idx >= this.length ) return null;
-   
+        let count, cur;
         // obtener el tamaño de la mitad de la lista
         let mid = this.length/2;
         //si idx es menor o igual a la mitad, inicia del head
         if(idx <= mid){
-            let count = 0;
-            let cur = this.head;
+            count = 0;
+            cur = this.head;
             while(count < idx){
                 cur = cur.next;
                 count++
@@ -110,8 +110,8 @@ class DoublyLinkedList {
         }
         else {
             // si idx es mayor a la mitad, inicia del tail
-            let count = this.length - 1;
-            let cur = this.tail;
+            count = this.length - 1;
+            cur = this.tail;
             while(count > idx){
                 cur = cur.prev;
                 count--;

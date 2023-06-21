@@ -129,3 +129,13 @@ class DoublyLinkedList {
         return false;
     }
 }
+
+let dll = new DoublyLinkedList();
+dll.push(1);
+dll.push(4);
+dll.push(8);
+dll.push(10);
+dll.push(12)
+dll.print();
+dll.set(-5,50);
+dll.print();
