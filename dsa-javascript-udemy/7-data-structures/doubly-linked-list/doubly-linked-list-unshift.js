@@ -93,3 +93,9 @@ class DoublyLinkedList {
         return this;
     }
 }
+
+let dll = new DoublyLinkedList();
+dll.push(1);
+dll.push(4);
+dll.push(8);
+
