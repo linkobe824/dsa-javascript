@@ -43,7 +43,7 @@ class DoublyLinkedList {
         if(!this.head){
             return undefined;
         }
-
+        
         let oldTail = this.tail;
         if(this.length === 1){
             this.head = null;
@@ -78,3 +78,11 @@ class DoublyLinkedList {
         return oldHead;
     }
 }
+
+let dll = new DoublyLinkedList();
+dll.push(1);
+dll.push(4);
+dll.push(8);
+dll.print();
+console.log(dll.shift());
+dll.print();
