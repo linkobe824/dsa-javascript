@@ -179,3 +179,11 @@ class DoublyLinkedList {
 
     }
 }
+
+let dll = new DoublyLinkedList()
+
+dll.push(1);
+dll.push(2)
+dll.reverse();
+dll.print();
+console.log(dll);
