@@ -62,6 +62,23 @@ class BinarySearchTree {
         //retorna la variable con los nodos guardados
         return data;
     }
+
+    //Depth First Search - PreOrder (recurisvo)
+    dfs_preOrder(){
+        let data = []
+        let current = this.root;
+
+        const traverse = (node) => {
+            data.push(node.val);
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+
+        traverse(current);
+
+        return data;
+
+    }
 }
 
 let bt = new BinarySearchTree();
@@ -76,4 +93,6 @@ bt.insert(20);
 //     6     15
 //   3   8      20  
 
-console.log(bt.bfs()); //[10, 6, 15, 3 ,8 ,20]
+// console.log(bt.bfs()); //[10, 6, 15, 3 ,8 ,20]
+
+//console.log(bt.dfs_preOrder()) // [10 ,6, 3, 8, 15, 20]
