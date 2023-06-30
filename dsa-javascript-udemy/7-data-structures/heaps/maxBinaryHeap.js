@@ -31,16 +31,79 @@ class MaxBinaryHeap {
             idx =  parentIdx;
         }
     }
+
+    extractMax(){
+        const max = this.values[0];
+        const end = this.values.pop();
+        if(this.values.length > 0){
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return max
+    }
+
+    sinkDown(){
+        let idx = 0;
+        const length = this.values.length;
+        const element = this.values[0];
+
+        while(true){
+            let leftChildIdx = 2 * idx + 1;
+            let rightChildIdx = 2 * idx + 2;
+            let leftChild, rightChild;
+            // variable para guardar estado o el indice del hijo a intercambiar
+            let swap = null;
+
+            //verificar que el indice del hijo izq sea valido
+            if(leftChildIdx < length){
+                // si es valido obtenemos su valor en values
+                leftChild = this.values[leftChildIdx];
+                // verificar si es candidato a intercambio con el padre
+                // si es un valor apropiado lo guarda en swap, sino, swap sigue como null
+                if(leftChild > element){
+                    swap = leftChildIdx;
+                }
+            }
+            //verificar que el indice del hijo der sea valido
+            if(rightChildIdx < length){
+                // si es valido se asigna el valor a la variable
+                rightChild = this.values[rightChildIdx];
+                //verificar si es candito a intercambio con el padre
+                // si el izq no fue candidato y der es mayor que el padre o
+                // si izq es candidato pero der es mayor a izq
+                if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)){
+                    swap = rightChildIdx;
+                }
+            }
+
+            // si no hubo intercambio se sale del ciclo ya que el elemento esta en su lugar apropiado
+            if(swap === null) break;
+            // realizar intercambio entre el elemento y el hijo
+            this.values[idx] = this.values[swap]
+            this.values[swap] = element;
+            // actualizar el indice del elemento. 
+            idx = swap;
+        }
+    }
+
 }
 
 let mbh = new MaxBinaryHeap();
 
-mbh.insert(10);
-mbh.insert(20);
-mbh.insert(33);
-mbh.insert(8);
-mbh.insert(25);
-mbh.insert(65);
-mbh.insert(10);
-mbh.insert(90);
-console.log(mbh.insert(66));
+mbh.insert(41)
+mbh.insert(39)
+mbh.insert(33)
+mbh.insert(18)
+mbh.insert(27)
+console.log(mbh.insert(12));
+mbh.extractMax()
+console.log(mbh);
+mbh.extractMax()
+mbh.extractMax()
+mbh.extractMax()
+mbh.extractMax()
+mbh.extractMax()
+mbh.extractMax()
+mbh.extractMax()
+
+console.log(mbh);
