@@ -23,13 +23,26 @@ class Graph {
         this.adjacencyList[vertex2] = this.adjacencyList[vertex2]
                                             .filter(v => v !== vertex1);
     }
+
+    removeVertex(vertex){
+        let list = this.adjacencyList[vertex];
+        for(let i = 0; i < list.length; i++){
+            let vertex2 =  list.pop();
+            this.removeEdge(vertex, vertex2);
+        }
+        delete this.adjacencyList[vertex];
+    }
 }
 
 let g = new Graph()
-g.addVertex('tokyo')
-g.addVertex('dallas')
-g.addVertex('culiacan')
-
-g.addEdge('tokyo','culiacan')
-g.addEdge('tokyo','dallas')
-g.addEdge('dallas','culiacan')
+g.addVertex("dallas")
+g.addVertex("tokyo")
+g.addVertex("aspen")
+g.addVertex("los angeles")
+g.addVertex("hong kong")
+g.addEdge("dallas","tokyo")
+g.addEdge("dallas", "aspen")
+g.addEdge("hong kong", "tokyo")
+g.addEdge("hong kong", "dallas")
+g.addEdge("los angeles", 'hong kong')
+g.addEdge('los angeles', 'aspen')
