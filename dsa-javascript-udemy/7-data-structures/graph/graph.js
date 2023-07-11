@@ -53,7 +53,7 @@ class Graph {
     //     return res;
     // }
 
-    dfsRecursive(vertex){
+    dfTraversalRecursive(vertex){
         const result = [];
         const visited = {};
         // se necesita crear una variable con la lista
@@ -74,7 +74,57 @@ class Graph {
    
         return result;
         
-       }
+    }
+
+    dfTraversalIterative(vertex) {
+        const vertexToVisit = []; // stack
+        const res = [];
+        const visited = {};
+        let current;
+
+        vertexToVisit.push(vertex);
+        visited[vertex] = true
+        
+        while(vertexToVisit.length){
+            current = vertexToVisit.pop();
+            res.push(current);
+
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    vertexToVisit.push(neighbor);
+                }
+            })
+
+        }
+
+        return res;
+    }
+
+    bfTraversal(vertex){
+        const vertexToVisit = []; //queue
+        const visited = {};
+        const res = [];
+        let current;
+
+        vertexToVisit.push(vertex);
+        visited[vertex] = true;
+
+        while(vertexToVisit.length){
+            current = vertexToVisit.shift();
+            res.push(current);
+
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    vertexToVisit.push(neighbor);
+                }
+            })
+        }
+
+        return res;
+
+    }
 }
 
 let g = new Graph();
@@ -87,11 +137,12 @@ g.addVertex("E");
 g.addVertex("F");
 
 g.addEdge("A","B");
-g.addEdge("A","C");
+g.addEdge("A","E");
+g.addEdge("B","C");
 g.addEdge("B","D");
-g.addEdge("C","E");
-g.addEdge("D","E");
-g.addEdge("D","F");
+g.addEdge("E","D");
 g.addEdge("E","F");
+g.addEdge("F","D");
 
-console.log(g.dfsRecursive("A"))
+
+console.log(g.bfTraversal("A"));
