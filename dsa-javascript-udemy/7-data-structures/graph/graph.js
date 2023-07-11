@@ -32,17 +32,66 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+
+    // dfsRecursive(vertex){
+    //     let res = []
+    //     let visited = {}
+    //     const dfs = (vertex) => {
+    //         if(!vertex){
+    //             return
+    //         }
+    //         visited[vertex] = true;
+    //         res.push(vertex);
+    //         let list = this.adjacencyList[vertex];
+    //         for(let i = 0; i < list.length; i++){
+    //          if(!visited[list[i]]){
+    //           dfs(list[i]);
+    //          }
+    //         }
+    //     }
+    //     dfs(vertex);
+    //     return res;
+    // }
+
+    dfsRecursive(vertex){
+        const result = [];
+        const visited = {};
+        // se necesita crear una variable con la lista
+        // ya que "this" no existe en el contexto
+        // de (function dfs())();
+        const adjacencyList = this.adjacencyList;
+   
+        (function dfs(vertex){
+         if(!vertex) return null;
+         visited[vertex] = true;
+         result.push(vertex);
+         adjacencyList[vertex].forEach(neighbor => {
+          if(!visited[neighbor]){
+           return dfs(neighbor)
+          }
+         })
+        })(vertex);
+   
+        return result;
+        
+       }
 }
 
-let g = new Graph()
-g.addVertex("dallas")
-g.addVertex("tokyo")
-g.addVertex("aspen")
-g.addVertex("los angeles")
-g.addVertex("hong kong")
-g.addEdge("dallas","tokyo")
-g.addEdge("dallas", "aspen")
-g.addEdge("hong kong", "tokyo")
-g.addEdge("hong kong", "dallas")
-g.addEdge("los angeles", 'hong kong')
-g.addEdge('los angeles', 'aspen')
+let g = new Graph();
+
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+
+g.addEdge("A","B");
+g.addEdge("A","C");
+g.addEdge("B","D");
+g.addEdge("C","E");
+g.addEdge("D","E");
+g.addEdge("D","F");
+g.addEdge("E","F");
+
+console.log(g.dfsRecursive("A"))
