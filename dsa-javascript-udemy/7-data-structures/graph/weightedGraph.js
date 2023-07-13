@@ -71,11 +71,6 @@ class WeightedGraph {
         return path.concat(smallest).reverese();
     }
 
-    test(start, finish){
-        for(let vertex in this.adjacencyList){
-            console.log(vertex);
-        }
-    }
 }
 
 class PriorityQueue {
