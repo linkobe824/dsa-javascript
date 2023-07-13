@@ -34,6 +34,8 @@ class WeightedGraph {
         // mientras haya algo que visitar
         let smallest;
         while(nodes.values.length){
+            // smallest es el nodo con distancia mas corta desde el incial 
+            // hasta el momento
             smallest = nodes.dequeue().val;
             if(smallest === end){
                 // build path to return
@@ -43,9 +45,13 @@ class WeightedGraph {
                 }
                 break;
             }
-            if(smallest || distances[smallest] !== Infinity){
+            // if(smallest || distances[smallest] !== Infinity){
+            else{
+                // obtener vecinos de smallest (nodo actual)
                 for(let neighbor in this.adjacencyList[smallest]){
+                    // neighbor es el indice de los elementos dentro de la lista
                     // encontrar el nodo vecino
+                    // nextNode entrega {nodo y peso}
                     let nextNode = this.adjacencyList[smallest][neighbor];
                     //calcular nueva distancia
                     let candidate = distances[smallest] + nextNode.weight;
@@ -56,12 +62,19 @@ class WeightedGraph {
                         // actualizar previous - como se llego a vecino
                         previous[nextNeighbor] = smallest;
                         //enqueue con nueva prioridad
+                        // al ser una priority Queue lo ordena de acuerdo al peso (Distancia)
                         nodes.enqueue(nextNeighbor, candidate);
                     }
                 }
             }
         }
         return path.concat(smallest).reverese();
+    }
+
+    test(start, finish){
+        for(let vertex in this.adjacencyList){
+            console.log(vertex);
+        }
     }
 }
 
